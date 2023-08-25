@@ -25,6 +25,8 @@ public class OpenDoor : MonoBehaviour
     private int rotationDirectionSign = 1;
 
     public GameObject Zombie;
+    public AudioSource m_audioSource;
+    public AudioClip m_animationSound;
 
     private void Start()
     {
@@ -70,14 +72,6 @@ public class OpenDoor : MonoBehaviour
     private void OnMouseDown()
     {
         isRotating = !isRotating;
-
-        /*if (Zombie != null)
-        {
-            AnimateButton receiver = Zombie.GetComponent<AnimateButton>();
-            if (receiver != null)
-            {
-                receiver.ReceiveClick();
-            }
-        }*/
+        m_audioSource.PlayOneShot(m_animationSound);
     }
 }
